@@ -63,7 +63,7 @@ public class TesterArrayCharOps {
 
         boolean test6 = ArrCharOps.lastIndexOf(arr1, 'r') == 20;
         boolean test7 = ArrCharOps.lastIndexOf(arr1, 'B') == -1;
-
+    
         int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (test3 ? 1 : 0) + (test4 ? 1 : 0) +
                      (test5 ? 1 : 0) + (test6 ? 1 : 0) + (test7 ? 1 : 0);
         String verdict = passed == num_tests ? "(Passed)": "Failed";
@@ -117,7 +117,6 @@ public class TesterArrayCharOps {
 
         int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (test3 ? 1 : 0) + (test4 ? 1 : 0);
         String verdict = passed == num_tests ? "(Passed)": "Failed";
-
         System.out.println("Passed " + passed + "/" + num_tests + " tests " + verdict);
     }
 
@@ -135,7 +134,6 @@ public class TesterArrayCharOps {
 
         int passed = (test1 ? 1 : 0) + (test2 ? 1 : 0) + (test3 ? 1 : 0);
         String verdict = passed == num_tests ? "(Passed)": "Failed";
-
         System.out.println("Passed " + passed + "/" + num_tests + " tests " + verdict); 
     }
 }

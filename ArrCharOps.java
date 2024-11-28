@@ -43,35 +43,29 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        boolean isEquals = false;
-        if(arr1.length!=arr2.length){return isEquals;}
+        if(arr1.length!=arr2.length){return false;}
         else{
             for(int i=0;i<arr1.length;i++){
-                if(arr1[i]==arr2[i]){isEquals=true;}
-                else{isEquals=false; break;}
+                if(arr1[i]!=arr2[i]){return false;} 
             }
         }
-        return false;
+        return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        int index = -1;
-        for(int i=0;i<arr.length;i++){if(arr[i]==ch){index=i;break;}}
-        return index;
+        for(int i=0;i<arr.length;i++){if(arr[i]==ch){return i;}}
+        return -1;
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        int leng = arr.length-fromIndex;
-        char[] tempArr = new char[leng];
-        for(int i=fromIndex; i<arr.length;i++){tempArr[i-fromIndex]=arr[i];}
-        int index = indexOf(tempArr, ch)+fromIndex;
-        return index;
+        for(int i=fromIndex; i<arr.length;i++){
+            if(arr[i]==ch){return i;}}
+        return -1;
     }
 
     /** Returns the index within the given arr of the last occurrence of the given character.
@@ -119,9 +113,9 @@ public class ArrCharOps {
         int n = arr.length-1;
         int counter=0;
         for(int i=0;i<arr.length;i++){
-            if(arr[i]==0){counter++;}
-            else{ hash+=(arr[i]*7^(n));}
-            n--;
+            if(arr[i]==-1){counter++;} 
+            hash+=((int)arr[i]*Math.pow(7,n));
+             n--;
         }
         if(arr.length==counter){hash=0;}
 
@@ -156,13 +150,11 @@ public class ArrCharOps {
     public static int compareTo(String str1, String str2) {
         int length = Math.min(str1.length(), str2.length());
         int lex = -2;
-        str1=str1.toLowerCase();
-        str2=str2.toLowerCase();
         for(int i=0;i<length;i++){
             if(str1.charAt(i)==str2.charAt(i)){lex = 0;}
             else if(str1.charAt(i)<str2.charAt(i)){lex=-1;break;}
             else if(str1.charAt(i)>str2.charAt(i)){lex=1;break;}
-            else if((int)str1.charAt(i)<97||(int)str1.charAt(i)>122||(int)str2.charAt(i)<97||(int)str2.charAt(i)>122){lex=-2;break;}
+            else if((int)str1.charAt(i)<97||(int)str1.charAt(i)>122||(int)str2.charAt(i)<97||(int)str2.charAt(i)>122||str1==""||str2==""){lex=-2;break;}
         }
         if(lex==0&&str1.length()>str2.length()){lex=1;}
         else if(lex==0&&str2.length()>str1.length()){lex=-1;}
